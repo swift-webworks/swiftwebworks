@@ -1,0 +1,50 @@
+<!-- components/navbar.html -->
+<!-- Include this via JS in each page -->
+
+<nav class="navbar-custom" id="mainNavbar">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <!-- Logo -->
+      <a href="index.html" class="navbar-brand">
+        <img src="../logo.png" alt="Swift Web Works" class="brand-logo">
+        <div>
+          <div class="brand-name">Swift Web Works</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="d-none d-lg-flex list-unstyled mb-0 align-items-center gap-1">
+        <li><a class="nav-link" href="index.html" data-page="home">Home</a></li>
+        <li><a class="nav-link" href="services.html" data-page="services">Services</a></li>
+        <li><a class="nav-link" href="portfolio.html" data-page="portfolio">Portfolio</a></li>
+        <li><a class="nav-link" href="about.html" data-page="about">About</a></li>
+        <li class="ms-2">
+          <a href="contact.html" class="btn-primary-custom" style="padding:11px 24px;font-size:0.85rem;">
+            Get a Website
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler d-lg-none" id="mobileToggle" type="button" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu d-lg-none" id="mobileMenu">
+      <ul class="list-unstyled py-3 mb-0">
+        <li><a class="nav-link py-2" href="index.html">Home</a></li>
+        <li><a class="nav-link py-2" href="services.html">Services</a></li>
+        <li><a class="nav-link py-2" href="portfolio.html">Portfolio</a></li>
+        <li><a class="nav-link py-2" href="about.html">About</a></li>
+        <li><a class="nav-link py-2" href="contact.html">Contact</a></li>
+        <li class="mt-2">
+          <a href="contact.html" class="btn-primary-custom d-block text-center" style="padding:12px;font-size:0.9rem;">
+            Get a Website
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

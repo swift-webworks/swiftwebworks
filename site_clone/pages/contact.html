@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Swift Web Works</title>
+  <link rel="icon" href="../logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Saira+Stencil+One&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/main.css" />
+
+  <!--
+  ══════════════════════════════════════
+  📧 EMAILJS SETUP INSTRUCTIONS
+  ══════════════════════════════════════
+  To make this form send emails to swift.webworks05@gmail.com:
+
+  STEP 1: Go to https://www.emailjs.com and create a FREE account.
+
+  STEP 2: In EmailJS Dashboard → Email Services → Add Service
+          → Choose Gmail → Connect your swift.webworks05@gmail.com
+          → Note down your SERVICE ID (e.g. "service_abc123")
+
+  STEP 3: In EmailJS → Email Templates → Create Template
+          Paste this template content:
+          Subject: New Website Enquiry from {{from_name}}
+          Body:
+            Name: {{from_name}}
+            Email: {{from_email}}
+            Phone: {{phone}}
+            Business Type: {{business_type}}
+            Message: {{message}}
+          Set "To Email" to: swift.webworks05@gmail.com
+          Note down your TEMPLATE ID (e.g. "template_xyz456")
+
+  STEP 4: In EmailJS → Account → General
+          Note down your PUBLIC KEY (e.g. "user_abc123xyz")
+
+  STEP 5: Replace the 3 placeholder values below in the <script> at the bottom:
+          - YOUR_PUBLIC_KEY    → your actual public key
+          - YOUR_SERVICE_ID   → your actual service ID
+          - YOUR_TEMPLATE_ID  → your actual template ID
+
+  That's it! The form will now send emails directly to your Gmail.
+  ══════════════════════════════════════
+  -->
+
+  <!-- STEP 5a: Add EmailJS SDK (uncomment when you have your keys) -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">  </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      emailjs.init("VBEcFj26KCzbNTpVT");
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+    const btn = this.querySelector('[type="submit"]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    emailjs.sendForm("service_hmigq9j", "template_zt2ldpq", this)
+    .then(function() {
+      document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successMessage').style.display = 'block';
+      })
+    .catch(function(error) {
+      btn.textContent = 'Send Message';
+    btn.disabled = false;
+    alert('Failed to send. Please try WhatsApp instead.');
+    console.error('EmailJS Error:', error);
+      });
+
+  });
+
+});
+  </script>
+  </script>
+</head>
+
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-custom scrolled" id="mainNavbar">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between w-100">
+        <a href="../index.html" class="navbar-brand">
+          <img src="../logo.png" alt="Swift Web Works" class="brand-logo">
+          <div class="brand-name">Swift Web Works</div>
+        </a>
+        <ul class="d-none d-lg-flex list-unstyled mb-0 align-items-center gap-1">
+          <li><a class="nav-link" href="../index.html">Home</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="careers.html">Careers</a></li>
+        <li class="ms-2"><a href="contact.html" class="btn-primary-custom active"
+              style="padding:11px 24px;font-size:0.85rem;">Get a Website</a></li>
+        </ul>
+        <button class="navbar-toggler d-lg-none" id="mobileToggle" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="mobile-menu d-lg-none" id="mobileMenu">
+        <ul class="list-unstyled py-3 mb-0">
+          <li><a class="nav-link py-2" href="../index.html">Home</a></li>
+          <li><a class="nav-link py-2" href="services.html">Services</a></li>
+          <li><a class="nav-link py-2" href="portfolio.html">Portfolio</a></li>
+          <li><a class="nav-link py-2" href="about.html">About</a></li>
+          <li><a class="nav-link py-2 active" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container position-relative" style="z-index:2;">
+      <span class="section-label" style="color:#C8A8C0;">Let's Talk</span>
+      <h1>Get In <span style="color:#C8A8C0;">Touch</span></h1>
+      <p>Tell us about your business and we'll craft the perfect website for you. Free consultation, no strings
+        attached.</p>
+      <div class="breadcrumb-custom">
+        <a href="../index.html">Home</a>
+        <span class="sep">/</span>
+        <span class="current">Contact</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="bg-light-custom">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+
+        <!-- Contact Info Card -->
+        <div class="col-lg-4 reveal">
+          <div class="contact-info-card">
+            <div style="position:relative;z-index:1;">
+              <span class="section-label" style="color:#C8A8C0;">Contact Details</span>
+              <h3
+                style="font-family:var(--font-heading);color:white;font-size:1.6rem;font-weight:700;margin-bottom:10px;">
+                We'd Love to Hear From You</h3>
+              <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.75;margin-bottom:32px;">
+                Reach out via any of the channels below. We typically respond within a few hours.
+              </p>
+
+              <div class="contact-item">
+                <div class="contact-item-icon"><i class="bi bi-telephone-fill"></i></div>
+                <div>
+                  <div class="contact-item-label">Phone</div>
+                  <div class="contact-item-value"><a href="tel:+917358322382">+91 7358322382</a></div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon"><i class="bi bi-envelope-fill"></i></div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-value"><a
+                      href="mailto:swift.webworks05@gmail.com">swift.webworks05@gmail.com</a></div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon"><i class="bi bi-instagram"></i></div>
+                <div>
+                  <div class="contact-item-label">Instagram</div>
+                  <div class="contact-item-value"><a href="https://www.instagram.com/swift.webworks"
+                      target="_blank">@swift.webworks</a></div>
+                </div>
+              </div>
+
+              <div class="contact-item" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+                <div class="contact-item-icon"><i class="bi bi-clock-fill"></i></div>
+                <div>
+                  <div class="contact-item-label">Working Hours</div>
+                  <div class="contact-item-value">Mon–Sat, 9 AM – 8 PM</div>
+                </div>
+              </div>
+
+              <a href="https://wa.me/917358322382" target="_blank" rel="noopener" class="btn-whatsapp mt-4">
+                <i class="bi bi-whatsapp" style="font-size:1.1rem;"></i>
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-lg-8 reveal reveal-delay-2">
+          <div class="contact-form-wrap">
+            <span class="section-label">Send a Message</span>
+            <h3
+              style="font-family:var(--font-heading);color:var(--primary);font-size:1.8rem;font-weight:700;margin-bottom:8px;">
+              Tell Us About Your Business</h3>
+            <p style="color:var(--muted);font-size:0.92rem;margin-bottom:32px;">Fill in the details below and we'll get
+              back to you with a free quote.</p>
+
+            <!-- The form -->
+            <form id="contactForm" novalidate>
+              <div class="row g-4">
+
+                <div class="col-sm-6">
+                  <label class="form-label-custom">Full Name *</label>
+                  <input type="text" name="from_name" class="form-control-custom" placeholder="Your full name"
+                    required />
+                </div>
+
+                <div class="col-sm-6">
+                  <label class="form-label-custom">Email Address *</label>
+                  <input type="email" name="from_email" class="form-control-custom" placeholder="your@email.com"
+                    required />
+                </div>
+
+                <div class="col-sm-6">
+                  <label class="form-label-custom">Phone Number *</label>
+                  <input type="tel" name="phone" class="form-control-custom" placeholder="+91 98765 43210" required />
+                </div>
+
+                <div class="col-sm-6">
+                  <label class="form-label-custom">Business Type *</label>
+                  <select name="business_type" class="form-control-custom" required>
+                    <option value="" disabled selected>Select your business type</option>
+                    <option value="Salon / Parlor">Salon / Parlor</option>
+                    <option value="Restaurant / Cafe">Restaurant / Cafe</option>
+                    <option value="Travel / Tourism">Travel / Tourism Agency</option>
+                    <option value="Gym / Fitness Studio">Gym / Fitness Studio</option>
+                    <option value="Clinic / Hospital">Clinic / Hospital</option>
+                    <option value="Student Portfolio">Student Portfolio</option>
+                    <option value="Other Small Business">Other Small Business</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label-custom">Your Message *</label>
+                  <textarea name="message" class="form-control-custom"
+                    placeholder="Tell us about your project — what kind of website do you need? Any specific features?"
+                    required></textarea>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100 justify-content-center"
+                    style="border:none;cursor:pointer;font-size:1rem;padding:16px;">
+                    <i class="bi bi-send"></i> Send Message
+                  </button>
+                </div>
+
+              </div>
+            </form>
+
+            <!-- Success Message (hidden by default) -->
+            <div class="success-message" id="successMessage">
+              <span class="success-icon">🎉</span>
+              <h4>Message Sent Successfully!</h4>
+              <p>Thank you for reaching out. We'll get back to you within a few hours with your free quote.</p>
+              <div style="margin-top:24px;">
+                <a href="https://wa.me/917358322382" target="_blank" class="btn-whatsapp"
+                  style="width:auto;display:inline-flex;margin-top:0;">
+                  <i class="bi bi-whatsapp"></i> Or Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="bg-white-custom">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Simple <span>4-Step Process</span></h2>
+        <div class="accent-divider center"></div>
+        <p class="section-subtitle mx-auto">From enquiry to a live website — here's how we work together.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal reveal-delay-1">
+          <div class="glass-card h-100 text-center">
+            <div
+              style="font-size:2rem;font-weight:900;color:var(--accent);font-family:var(--font-heading);margin-bottom:12px;">
+              01</div>
+            <div style="font-size:1.8rem;margin-bottom:14px;">📋</div>
+            <h4 class="service-card-title">You Contact Us</h4>
+            <p class="service-card-text">Fill the form or WhatsApp us. Tell us about your business and what you need.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal reveal-delay-2">
+          <div class="glass-card h-100 text-center">
+            <div
+              style="font-size:2rem;font-weight:900;color:var(--accent);font-family:var(--font-heading);margin-bottom:12px;">
+              02</div>
+            <div style="font-size:1.8rem;margin-bottom:14px;">💬</div>
+            <h4 class="service-card-title">Free Consultation</h4>
+            <p class="service-card-text">We discuss your requirements, budget and timeline. You get a clear price quote.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal reveal-delay-3">
+          <div class="glass-card h-100 text-center">
+            <div
+              style="font-size:2rem;font-weight:900;color:var(--accent);font-family:var(--font-heading);margin-bottom:12px;">
+              03</div>
+            <div style="font-size:1.8rem;margin-bottom:14px;">🎨</div>
+            <h4 class="service-card-title">We Build It</h4>
+            <p class="service-card-text">We design and build your website with regular updates. You review and suggest
+              changes.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal reveal-delay-4">
+          <div class="glass-card h-100 text-center">
+            <div
+              style="font-size:2rem;font-weight:900;color:var(--accent);font-family:var(--font-heading);margin-bottom:12px;">
+              04</div>
+            <div style="font-size:1.8rem;margin-bottom:14px;">🚀</div>
+            <h4 class="service-card-title">Go Live!</h4>
+            <p class="service-card-text">Your website goes live. We hand over everything and stay available for support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <img src="../logo.png" alt="Logo" class="footer-logo">
+          </div>
+          <div class="footer-brand-name">Swift Web Works</div>
+          <p class="footer-tagline">We build websites that bring you customers. Premium web design for growing
+            businesses.</p>
+          <div class="footer-social mt-3">
+            <a href="https://www.instagram.com/swift.webworks" target="_blank" class="social-btn"><i
+                class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/917358322382" target="_blank" class="social-btn"><i class="bi bi-whatsapp"></i></a>
+            <a href="mailto:swift.webworks05@gmail.com" class="social-btn"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-heading">Pages</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html">Salon Websites</a></li>
+            <li><a href="services.html">Restaurant Sites</a></li>
+            <li><a href="services.html">Travel Websites</a></li>
+            <li><a href="services.html">Gym Websites</a></li>
+            <li><a href="services.html">Student Portfolios</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:+917358322382"><i class="bi bi-telephone me-2"></i>+91 7358322382</a></li>
+            <li><a href="mailto:swift.webworks05@gmail.com"><i
+                  class="bi bi-envelope me-2"></i>swift.webworks05@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/swift.webworks" target="_blank"><i
+                  class="bi bi-instagram me-2"></i>@swift.webworks</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2025 Swift Web Works. All rights reserved.</div>
+        <div class="footer-credit">Crafted with ❤️ for Indian businesses</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+
+  <!--
+====================================================
+  EMAIL JS INTEGRATION (Activate after setup)
+====================================================
+  After completing the EmailJS steps in the HTML comments above,
+  uncomment the SDK in <head> and replace this entire <script> block:
+====================================================
+<script>
+  emailjs.init("VBEcFj26KCzbNTpVT"); // ← Replace with your EmailJS public key
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const btn = this.querySelector('[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    emailjs.sendForm("service_hmigq9j", "template_zt2ldpq", this)
+      .then(function() {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      }, function(error) {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        alert('Failed to send. Please try WhatsApp instead.');
+        console.error('EmailJS Error:', error);
+      });
+  });
+</script>
+====================================================
+-->
+
+</body>
+
+</html>
